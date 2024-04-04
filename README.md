@@ -1,5 +1,5 @@
 <div align="center">
-  <img height="60" src="https://static-00.iconduck.com/assets.00/typescript-plain-icon-256x256-ypojgpyj.png">
+  <img height="60" src="https://c0.klipartz.com/pngpicture/447/294/gratis-png-python-javascript-logo-clojure-logo-de-python-thumbnail.png">
   <h1>Ibuprofeno.py</h1>
   <h2>Preguntas tipo quiz para aprender Python</h2>
 
