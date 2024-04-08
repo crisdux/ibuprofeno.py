@@ -179,3 +179,338 @@ En Python es posible crear intervalos de mayor a menor con la función `range`. 
 </details>
 
 ---
+
+#### 6. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+numbers = [12, 5, 8, 13, 4]
+num = numbers[::2]
+print(num)
+```
+
+- A. `[12, 8, 4]`
+- B. `[5, 13]`
+- C. `[4, 8, 12]`
+- D. `[4, 13, 8, 5, 12]`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ A. `[12, 8, 4]`
+
+Al momento de parcelar la lista omitimos los parámetros de inicio y final por lo que operaremos sobre toda la lista haciendo saltos de 2 en 2: `[12, 8, 4]`
+
+</p>
+</details>
+
+---
+
+#### 7. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+primos = [2,3,5,7,11]
+for indice, primo in enumerate(primos):
+  print(f"{indice} -> {primo}")
+```
+
+- A.
+
+```py
+0 -> 2
+1 -> 3
+2 -> 5
+3 -> 7
+4 -> 11
+```
+
+- B.
+
+```py
+1 -> 2
+2 -> 3
+3 -> 5
+4 -> 7
+5 -> 11
+```
+
+- C.
+
+```py
+2 -> 0
+3 -> 1
+5 -> 3
+7 -> 3
+11 -> 4
+```
+
+- D. `SyntaxError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ A.
+
+```py
+0 -> 2
+1 -> 3
+2 -> 5
+3 -> 7
+4 -> 11
+```
+
+La función `enumerate()` en Python es muy útil cuando no solo necesitamos recorrer y acceder a los items de una lista, sino también a los índices de la misma. Por defecto los índices comienzan en `0` y van hasta el final de la lista. 
+
+</p>
+</details>
+
+---
+
+#### 8. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+list = [ x*5 for x in range(1,5)]
+print(list)
+```
+
+- A. `[1, 2, 3, 4, 5]`
+- B. `[5, 10, 15, 20]`
+- C. `[5, 5, 5, 5, 5]`
+- D. `SyntaxError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ - B. `[5, 10, 15, 20]`
+
+Python posee una característica bien interesante denominada **list comprehension** o **compresión de listas** en español.
+Es una sintaxis para poder escribir patrones de listas de una manera sencilla y fácil de comprender.
+
+La sintaxis es la siguiente:
+
+```py
+lista = [expresión for elemento in iterable]
+```
+
+Donde: 
+* `expresión`: es la variante de item que queremos mostrar en cada interacción.
+* `for elemento in iterable`: es el `for` típico de Python para recorrer iterables (listas, diccionarios, tuplas, sets, cadenas, etc)
+
+En nuestro ejemplo `for x in range(1,5)` genera un rango entre 1 y 4 que lo guardamos en la variable `x`, y con nuestra expresión `x*5` multiplicamos este valor por 5 en cada vuelta del bucle.
+
+Por ello nuestro resultado es `[5, 10, 15, 20]`.
+
+</p>
+</details>
+
+---
+
+#### 9. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Intermedio </mark>
+
+```py
+frase = "Feliz Año nuevo 2024"
+salida = [ letra for letra in frase if(letra == "e") ]
+print(len(salida))
+```
+
+- A. `3`
+- B. `0`
+- C. `2`
+- D. `SyntaxisError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ C. `2`
+
+En nuestro último reto vimos las **list comprehension** de Python, una manera super útil de poder crear listas en una sola línea de código. Olvide mencionarte que sintaxis también puede tener condicionales en su sintaxis 👀
+
+La sintaxis final quedaría así:
+
+```py
+lista = [expresión for elemento in iterable condicional]
+```
+
+Entonces en nuestro reto con `for letra in frase` iteramos cada letra de la cadena `frase`, luego con `if(letra == "e")` verificamos en cada iteración que la letra sea `e`, si esto se cumple almacenamos la letra en la expresión `letra`.
+
+La cadena `Feliz Año nuevo 2024` tiene un par de letras `e` por lo que quedaría `["e", "e"]` pero en la impresión final aplicamos `len` al resultado, en conclusión mostramos `2` por consola. 
+
+</p>
+</details>
+
+---
+
+#### 10. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Intermedio </mark>
+
+```py
+print(bool([])) # 🤔
+print(bool(0)) # 🤔
+print(bool("")) # 🤔
+```
+
+- A. `False`, `False`, `True`
+- B. `True`, `False`, `False`
+- C. `True`, `True`, `False`
+- D. `False`, `False`, `False`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ D. `False`, `False`, `False`
+
+Python considera tanto las listas vacías, el número `0` y las cadenas vacías como `False`. 
+
+</p>
+</details>
+
+---
+
+<!-- #### 11. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+
+```
+
+- A. ``
+- B. ``
+- C. ``
+- D. ``
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅
+
+</p>
+</details>
+
+---
+
+#### 12. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+
+```
+
+- A. ``
+- B. ``
+- C. ``
+- D. ``
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅
+
+</p>
+</details>
+
+---
+
+#### 13. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+
+```
+
+- A. ``
+- B. ``
+- C. ``
+- D. ``
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅
+
+</p>
+</details>
+
+---
+
+#### 14. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+
+```
+
+- A. ``
+- B. ``
+- C. ``
+- D. ``
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅
+
+</p>
+</details>
+
+---
+
+#### 15. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+
+```
+
+- A. ``
+- B. ``
+- C. ``
+- D. ``
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅
+
+</p>
+</details>
+
+---
+ -->
+
+
+
+
+
