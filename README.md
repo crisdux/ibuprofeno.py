@@ -384,25 +384,29 @@ Python considera tanto las listas vacías, el número `0` y las cadenas vacías 
 
 ---
 
-<!-- #### 11. Explica el siguiente código Python
+#### 11. Explica el siguiente código Python
 
 ➡️ Dificultad: <mark> Fácil </mark>
 
 ```py
-
+frase = "    Hola mundo  "
+print(frase.strip())
 ```
 
-- A. ``
-- B. ``
-- C. ``
-- D. ``
+- A. `Hola mundo`
+- B. `mundo Hola`
+- C. `Hola`
+- D. `mundo`
+
 
 <details><summary><b>Respuesta</b></summary>
 <p>
 
 #### **Respuesta**:
 
-✅
+✅ A. `Hola mundo`
+
+`strip()` en Python elimina los espacios sobrantes tanto de izquierda como de derecha de una cadena. Muy similar al método `trim()` de otros lenguajes de programación. 
 
 </p>
 </details>
@@ -411,23 +415,32 @@ Python considera tanto las listas vacías, el número `0` y las cadenas vacías 
 
 #### 12. Explica el siguiente código Python
 
-➡️ Dificultad: <mark> Fácil </mark>
+➡️ Dificultad: <mark> Intermedio </mark>
 
 ```py
+def my_fn(precio):
+  if(len(precio) == 1):
+    return precio.zfill(2)
+  if(len(precio) == 2):
+    return precio.zfill(3)
 
+print(my_fn("5"))
+print(my_fn("50"))
 ```
 
-- A. ``
-- B. ``
-- C. ``
-- D. ``
+- A. `5`, `50`
+- B. `005`, `00050`
+- C. `05`, `050`
+- D. `50`, `50`
 
 <details><summary><b>Respuesta</b></summary>
 <p>
 
 #### **Respuesta**:
 
-✅
+✅ C. `05`, `050`
+
+El método `zfill` de Python es útil para completar con ceros una cadena dada. En el ejemplo verificamos la longitud del `precio` mandado como argumento, si su longitud es de `1` entonces completamos con ceros hasta que la longitud final sea de `2`; así mismo si la longitud del `precio` es `2` entonces completamos con ceros hasta que la longitud final sea de `3`. Eso es todo. ¿Muy fácil no?
 
 </p>
 </details>
@@ -436,23 +449,31 @@ Python considera tanto las listas vacías, el número `0` y las cadenas vacías 
 
 #### 13. Explica el siguiente código Python
 
-➡️ Dificultad: <mark> Fácil </mark>
+➡️ Dificultad: <mark> Intermedio </mark>
 
 ```py
-
+print("-".join([str(i) for i in range(11,2,-2)]))
 ```
 
-- A. ``
-- B. ``
-- C. ``
-- D. ``
+- A. `[11, 9, 7, 5, 3]`
+- B. `11-9-7-5-3`
+- C. `[3, 5, 7, 9, 11]`
+- D. `3-5-7-9-11`
 
 <details><summary><b>Respuesta</b></summary>
 <p>
 
 #### **Respuesta**:
 
-✅
+✅ B. `11-9-7-5-3`
+
+El método `join` de las cadenas de Python es útil para convertir un iterable en un string en base a un separador.
+
+Su sintaxis es la siguiente: `separador.join(iterable)`.
+
+En nuestro ejemplo el `iterable` es una compresión de lista que va del `11` al `2` de uno en uno en secuencia decremental.
+
+Y nuestro `separador` es un `-`, por ello el resultado final es `11-9-7-5-3` como string.
 
 </p>
 </details>
@@ -464,20 +485,22 @@ Python considera tanto las listas vacías, el número `0` y las cadenas vacías 
 ➡️ Dificultad: <mark> Fácil </mark>
 
 ```py
-
+print("hola mundo como estas".split(" "))
 ```
 
-- A. ``
-- B. ``
-- C. ``
-- D. ``
+- A. `['hola', 'mundo', 'como', 'estas']`
+- B. `['hola mundo como estas']`
+- C. `hola mundo como estas`
+- D. `Ninguna de las anteriores`
 
 <details><summary><b>Respuesta</b></summary>
 <p>
 
 #### **Respuesta**:
 
-✅
+✅ A. `['hola', 'mundo', 'como', 'estas']`
+
+`split` en Python es un método que se aplica sobre cadenas de texto, convierte a la cadena en una lista separando los items por el separador que pasamos por argumento a `split`. En este caso un espacio en blanco. 
 
 </p>
 </details>
@@ -485,6 +508,199 @@ Python considera tanto las listas vacías, el número `0` y las cadenas vacías 
 ---
 
 #### 15. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+list = [1, 2, 3, 4]
+list.append(10)
+print(list)
+```
+
+- A. `[10]`
+- B. `10`
+- C. `[10, 1, 2, 3, 4]`
+- D. `[1, 2, 3, 4, 10]`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ D. `[1, 2, 3, 4, 10]`
+
+`append()` en Python es un método de listas que se usa para agregar al final de la lista un item nuevo. Si vienes por ejemplos de JavaScript es muy similar a lo que hace el método `push`.
+
+</p>
+</details>
+
+---
+
+#### 16. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+l = [1, 2]
+l.extend([3, 4])
+print(l) 
+```
+
+- A. `[1, 2, 3, 4]`
+- B. `[3, 4, 1, 2]`
+- C. `[1, 2]`, `[3, 4]`
+- D. `Ninguna de las anteriores`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ A. `[1, 2, 3, 4]`
+
+`extend()` en Python es un método de listas que nos sirve para concatenar dos listas para convertirlas en una sola. Es un método muy intuitivo y fácil de usar. 
+
+</p>
+</details>
+
+---
+
+#### 17. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+l = [1, 2]
+l.insert(1,[1,2,3])
+print(l)
+```
+
+- A. `[1, 2, [1, 2, 3]]`
+- B. `[1, [1, 2, 3], 2]`
+- C. `[1, 2, 1, 2, 3]`
+- D. `[[1, 2, 3], 1, 2]`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅  B. `[1, [1, 2, 3], 2]`
+
+`insert()` en Python es un método de listas que permite agregar un nuevo item a la lista, pero a diferencia de `append()` que lo agrega al final de la lista, `insert()` lo agrega en la posición de la lista que nosotros queramos. 
+
+`insert()` recibe 2 parámetros: el índice donde queremos hacer la inserción y el objeto como tal que queremos insertar en la lista.
+
+En nuestro ejemplo insertamos en la posición `1` una nueva lista `[1,2,3]` dando como resultado final una lista anidada: `[1, [1, 2, 3], 2]`.
+
+Eso es todo.
+
+</p>
+</details>
+
+---
+
+#### 18. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+colors = ["red", "green", "pink"]
+colors.pop()
+colors.pop()
+colors.pop()
+colors.pop()
+print(colors)
+```
+
+- A. `[]`
+- B. `IndexError`
+- C. `SintaxError`
+- D. `[-1]`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ B. `IndexError`
+
+La lista `colors` tiene solo 3 items y nosotros estamos intentando eliminar 4 items con `pop()`, esto no es correcto y por ello tenemos un `IndexError`.
+
+</p>
+</details>
+
+---
+
+#### 19. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+dias = "Lunes", "Martes", "Miercoles", "Jueves", "Viernes"
+print(type(dias)) # 🤔
+```
+
+👉 **A.** `<class 'set'>`
+👉 **B.** `<class 'list'>`
+👉 **C.** `<class 'tuple'>`
+👉 **D.** `<class 'str'>`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+👉 **C.** `<class 'tuple'>`
+
+Las tuplas en Python son una estructura de datos muy similares a las listas pero con la característica de ser inmutables. 
+Comúnmente su sintaxis se la puede reconocer con el uso de `()` encerrando todos los items, por ejemplo:
+
+```py
+dias = "Lunes", "Martes", "Miercoles", "Jueves", "Viernes"
+dias2 = ("Lunes", "Martes", "Miercoles", "Jueves", "Viernes")
+```
+
+</p>
+</details>
+
+---
+
+#### 20. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+list = [1,2,2,3,4,5,5,6]
+set = set(list)
+print(set)
+```
+
+- A. `{1, 2, 3, 4, 5, 6}`
+- B. `{2, 2, 5, 5}`
+- C. `{1, 3, 4, 6}`
+- D. `{2, 5}`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ A. `{1, 2, 3, 4, 5, 6}`
+
+`set` es una estructura de datos similar a las listas pero con algunas diferencias: los items en un `set` no están indexados por posición y los `set` no admiten elementos repetidos.
+
+Esto último es super importante para comprender este reto, en el mismo usamos la función `set()` para convertir una lista a un `set`, como este no puede contener elementos repetidos, en dicha conversión se perderán algunos items: un `2` y un `5`.
+
+El resultado final será un nuevo `set` sin dichos elementos repetidos. 
+
+
+</p>
+</details>
+
+---
+
+<!-- #### 21. Explica el siguiente código Python
 
 ➡️ Dificultad: <mark> Fácil </mark>
 
@@ -508,7 +724,107 @@ Python considera tanto las listas vacías, el número `0` y las cadenas vacías 
 </details>
 
 ---
- -->
+
+#### 22. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+
+```
+
+- A. ``
+- B. ``
+- C. ``
+- D. ``
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅
+
+</p>
+</details>
+
+---
+
+#### 23. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+
+```
+
+- A. ``
+- B. ``
+- C. ``
+- D. ``
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅
+
+</p>
+</details>
+
+---
+
+#### 24. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+
+```
+
+- A. ``
+- B. ``
+- C. ``
+- D. ``
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅
+
+</p>
+</details>
+
+---
+
+#### 25. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+
+```
+
+- A. ``
+- B. ``
+- C. ``
+- D. ``
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅
+
+</p>
+</details>
+
+--- -->
+
 
 
 
