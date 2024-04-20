@@ -700,25 +700,53 @@ El resultado final será un nuevo `set` sin dichos elementos repetidos.
 
 ---
 
-<!-- #### 21. Explica el siguiente código Python
+#### 21. Explica el siguiente código Python
 
 ➡️ Dificultad: <mark> Fácil </mark>
 
 ```py
+s1 = {1, 2, 3}
+s2 = {4, 2, 6}
+s3 = {2, 5, 7}
 
+print((s1 & s2) | s3) # 🤔
 ```
 
-- A. ``
-- B. ``
-- C. ``
-- D. ``
+- A. `{1, 2, 3, 4, 6}`
+- B. `{2}`
+- C. `{1, 2, 3, 4, 5, 6, 7}`
+- D. `{2, 5, 7}`
 
 <details><summary><b>Respuesta</b></summary>
 <p>
 
 #### **Respuesta**:
 
-✅
+✅ D. `{2, 5, 7}`
+
+Los `set` en Python soportan operaciones con conjuntos. 
+
+En este ejemplo aplicamos la operación de `union` (`|`) y también la operación de `intersection` (`&`).
+
+Vamos por pasos:
+* Primeramente hacemos la `intersection` entre `s1` y `s2`
+
+```py
+s1 = {1, 2, 3}
+s2 = {4, 2, 6}
+## esto nos dará {2} puesto que solo necesitamos 
+## los items que se repitan en ambos sets
+```
+
+* Ahora que tenemos `{2}` de la `intersection` es momento de hacer la `union` con el set `s3`
+
+```py
+print({2} | {2, 5, 7})
+## acá nos toca seleccionar todos los elementos
+## y los que se repiten solo los tomamos en cuenta una vez
+```
+
+Finalmente llegamos al resultado: `{2, 5, 7}`
 
 </p>
 </details>
@@ -730,20 +758,40 @@ El resultado final será un nuevo `set` sin dichos elementos repetidos.
 ➡️ Dificultad: <mark> Fácil </mark>
 
 ```py
+persona = {
+  "nombre": "Cris",
+  "apellido": "Villca",
+  "edad": 27,
+  "soltero": False,
+  "direccion": {
+    "calle": 17,
+    "avenida": "Tomas Monje",
+    "pasaje": "A"
+  }
+}
 
+print(persona.get("direccion").get("avenida").upper())
 ```
 
-- A. ``
-- B. ``
-- C. ``
-- D. ``
+- A. `None`
+- B. `TOMAS MONJE`
+- C. `tomas monje`
+- D. `ToMaS mOnJe`
 
 <details><summary><b>Respuesta</b></summary>
 <p>
 
 #### **Respuesta**:
 
-✅
+✅ B. `TOMAS MONJE`
+
+Los diccionarios en Python son estructuras de datos de pares clave valor que podemos usar para administrar data de una manera mas eficiente y legible.
+
+En este caso tenemos el diccionario anidado de dos niveles `persona` al cual queremos acceder a su propiedad `avenida`.
+
+Para acceder a propiedades de un diccionario podemos usar la notación de corchetes `[]` o también el método `get()` como en este caso.
+
+Encadenamos 2 veces el método `get()` pasando como argumento el nombre de la propiedad a la que queremos acceder, finalmente le pasamos un `upper()` para convertir todos los caracteres a mayúsculas. 
 
 </p>
 </details>
@@ -755,20 +803,36 @@ El resultado final será un nuevo `set` sin dichos elementos repetidos.
 ➡️ Dificultad: <mark> Fácil </mark>
 
 ```py
+persona = {
+  "nombre": "Cris",
+  "apellido": "Villca",
+  "edad": 27,
+  "soltero": False,
+  "direccion": {
+    "calle": 17,
+    "avenida": "Tomas Monje",
+    "pasaje": "A"
+  }
+}
 
+print(persona.get("peso", 50))
 ```
 
-- A. ``
-- B. ``
-- C. ``
-- D. ``
+- A. `peso`
+- B. `None`
+- C. `50`
+- D. `TypeError`
 
 <details><summary><b>Respuesta</b></summary>
 <p>
 
 #### **Respuesta**:
 
-✅
+✅ C. `50`
+
+El método `get()` de los diccionarios recibe un segundo parámetro que es el valor por defecto que le daremos a una propiedad en caso de que esta no exista en el diccionario.
+
+En este caso queremos acceder a la propiedad `peso` de `persona`, la misma no existe, entonces el valor por consola será nuestro valor por defecto que en este caso es `50`. 
 
 </p>
 </details>
@@ -780,20 +844,30 @@ El resultado final será un nuevo `set` sin dichos elementos repetidos.
 ➡️ Dificultad: <mark> Fácil </mark>
 
 ```py
+persona = {
+  "nombre": "Cris",
+  "apellido": "Villca",
+  "edad": 27,
+  "soltero": False,
+}
 
+print(persona.items())
 ```
 
-- A. ``
-- B. ``
-- C. ``
-- D. ``
+- A. `['nombre', 'apellido', 'edad', 'soltero']`
+- B. `[('nombre', 'Cris'), ('apellido', 'Villca'), ('edad', 27), ('soltero', False)]`
+- C. `['Cris', 'Villca', 27, False]`
+- D. `SintaxError`
 
 <details><summary><b>Respuesta</b></summary>
 <p>
 
 #### **Respuesta**:
 
-✅
+✅ B. `[('nombre', 'Cris'), ('apellido', 'Villca'), ('edad', 27), ('soltero', False)]`
+
+`items()` es un metodo de los diccionarios en Python que regresa una lista de tuplas, organizando cada una de ellas en pares clave-valor. 
+
 
 </p>
 </details>
@@ -801,6 +875,226 @@ El resultado final será un nuevo `set` sin dichos elementos repetidos.
 ---
 
 #### 25. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+def fn():
+  a=1
+print(fn())
+```
+
+- A. `TypeError`
+- B. `None`
+- C. `Null`
+- D. `SyntaxError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ B. `None`
+
+Cuando una función en Python no regresa nada y es invocada automáticamente el interprete hará que regrese `None`. 
+
+</p>
+</details>
+
+---
+
+#### 26. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+def fn(x=0, y=0):
+  return x + y
+
+print(fn(1,1))
+print(fn())
+```
+
+- A. `2`, `0`
+- B. `0`, `2`
+- C. `0`, `0`
+- D. `2`, `2`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ - A. `2`, `0`
+
+En Python podemos usar valores por defecto para los parámetros de una una función. 
+
+En este caso cuando llamamos a `fn()` con los argumentos `(1,1)` es fácil deducir que el resultado es `2`.
+
+Cuando llamamos a `fn()` sin argumentos entonces entran en acción los parámetros por defecto `(0,0)` dando como resultado la suma `0`. 
+
+Finalmente el resultado es `2,0`.
+
+</p>
+</details>
+
+---
+
+#### 27. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+def fn(x=0, y):
+  return x - y
+
+print(fn(1))
+```
+
+- A. `-1`
+- B. `1`
+- C. `SyntaxError`
+- D. `0`
+
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ C. `SyntaxError`
+
+Cuando queremos usar parámetros por defecto en Python estos siempre tienen que ir al final de la lista de parámetros en la función, sino tendremos un `SyntaxError`.
+
+Corrigiendo el ejemplo, tendríamos:
+
+```py
+def fn(y, x=0):
+  return x - y
+
+print(fn(1)) # -1
+```
+
+</p>
+</details>
+
+---
+
+#### 28. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+def fn(*numbers):
+    return type(numbers)
+
+print(fn())
+```
+
+- A. `<class 'list'>`
+- B. `<class 'int'>`
+- C. `<class 'tuple'>`
+- D. `<class 'dict'>`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ C. `<class 'tuple'>`
+
+En la lista de parámetros de una función escrita con Python, si vemos uno que empieza con un asterisco, en este ejemplo `*numbers` significa que dicho parámetro por defecto para el interprete de Python será considerado como una tupla.
+
+Si vienes de JavaScript esto es muy similar a los parámetros REST.
+
+Non confundir la sintaxis de asterisco con punteros de lenguajes como C, no tiene nada que ver. 
+
+</p>
+</details>
+
+---
+
+#### 29. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+def maximo(ls):
+  return max(ls)
+
+print(maximo(["a", "b", "c"]))
+```
+
+- A. `a`
+- B. `b`
+- C. `c`
+- D. `None`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ - C. `c`
+
+La función `max()` de Python como su nombre lo indica regresa el valor máximo de un iterable que le pasemos como argumento. 
+
+En este caso debemos encontrar el máximo de una lista de strings, entonces lo que hace Python es convertir de manera implícita los strings a su respectivo código ASCII: 
+
+Entonces tenemos algo como esto:
+
+```py
+def maximo(ls):
+  return max(ls)
+
+print(maximo([97, 98, 99])) # a->97, b->98, c->99
+```
+
+Ahora si es mucho más fácil saber por que la respuesta es `c`.
+
+</p>
+</details>
+
+---
+
+#### 30. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Intermedio </mark>
+
+```py
+x = 10
+def fn(entrada):
+    entrada = 0
+    return entrada
+
+print(x)
+print(fn(x))
+```
+
+- A. `10`, `10`
+- B. `0`, `0`
+- C. `10`, `0`
+- D. `0`, `10`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ - C. `10`, `0`
+
+La variable `x` esta fuera de la función `fn` por ende el valor de esta no se ve alterado mostrando primero por consola `10`.
+
+Cuando mandamos `x` como argumento a `fn(entrada)` cambiamos su valor de `10` a `0` en el cuerpo de la función y luego lo regresamos mostrando posteriormente por consola dicho valor alterado, osea `0`.
+
+En síntesis, el parametro `entrada` que pasamos a la función es recibido **por valor**, entonces fuera del scope de la función no sufre cambios, pero dentro de la función si.
+
+</p>
+</details>
+
+---
+
+<!-- #### 31. Explica el siguiente código Python
 
 ➡️ Dificultad: <mark> Fácil </mark>
 
