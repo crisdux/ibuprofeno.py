@@ -1094,7 +1094,358 @@ En síntesis, el parametro `entrada` que pasamos a la función es recibido **por
 
 ---
 
-<!-- #### 31. Explica el siguiente código Python
+#### 40. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+frutas = ["manzana", "pera", "fresa"]
+frutas2 = frutas
+frutas2.append("banana")
+print(frutas)
+```
+
+- A. `['manzana', 'pera', 'fresa']`
+- B. `['manzana', 'pera', 'fresa', 'banana']`
+- C. `['banana', 'manzana', 'pera', 'fresa']`
+- D. `Ninguna de las anteriores`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ B. `['manzana', 'pera', 'fresa', 'banana']`
+
+En Python las listas se asignan por referencia, esto significa que su valor queda ligado a una dirección de memoria dentro de nuestro ordenador, por ende cuando hacemos `frutas2 = frutas` lo que copiamos en la variable `frutas2` no es el valor de toda la lista `frutas`, sino que copiamos la referencia en memoria de la lista `frutas`.
+
+En Python y a diferencia de otros lenguajes podemos verificar esto haciendo uso de la función `id()` que justamente nos regresa la dirección de memoria donde esta almacenada nuestra variable:
+
+```py
+print(id(frutas)) # 140428447337024
+print(id(frutas2)) # 140428447337024
+``` 
+Vemos que la dirección en memoria de ambas variables es la misma y es por este motivo que al alterar la lista de frutas de la variable `frutas2` los cambios también se ven reflejados en la variable original `frutas`. 
+
+
+</p>
+</details>
+
+---
+
+#### 41. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Intermedio </mark>
+
+```py
+frutas = ["manzana", "pera", "fresa"]
+frutas2 = frutas.copy()
+frutas2.append("banana")
+print(frutas)
+```
+
+- A. `['manzana', 'pera', 'fresa']`
+- B. `['manzana', 'pera', 'fresa', 'banana']`
+- C. `['banana', 'manzana', 'pera', 'fresa']`
+- D. `Ninguna de las anteriores`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ - A. `['manzana', 'pera', 'fresa']`
+
+El método `copy()` sirve para poder realizar copias completamente independientes de listas. En nuestro ejemplo al usar este método solo afectamos a `frutas2`, dejando a `frutas` intacto. 
+
+</p>
+</details>
+
+---
+
+#### 42. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+print(list())
+```
+
+- A. `[]`
+- B. `IndexError`
+- C. `TypeError`
+- D. `SyntaxError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ A. `[]`
+
+Podemos crear listas en Python usando la función `list()` y no pasarle ningún parámetro. La manera más _pythonica_ de hacerlo es solamente usando la sintaxis de corches vacíos: `[]`. 
+
+</p>
+</details>
+
+---
+
+#### 43. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Intermedio </mark>
+
+```py
+lista_compras = ["huevos", "pan", "tomates", "leche"]
+print(lista_compras[100:200:50])
+```
+
+- A. `IndexError`
+- B. `SyntaxError`
+- C. `TypeError`
+- D. `[]`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ D. `[]`
+
+Cuando intentamos acceder a una porción que no existe en una lista quizá pienses que deberíamos ver un error por consola, pero la verdad es que solo veremos un arreglo vacío haciendo referencia a que dicha porción de la lista justamente esta vacía. 
+
+
+</p>
+</details>
+
+---
+
+#### 44. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Intermedio </mark>
+
+```py
+lista_compras = ["huevos", "pan", "tomates", "leche"]
+print(lista_compras[100:200:50]) # 🤔
+```
+
+👉 A. `IndexError`
+👉 B. `SyntaxError`
+👉 C. `["huevos", "pan", "tomates", "leche"]`
+👉 D. `[]`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ D. `[]`
+
+En nuestro ejemplo queremos acceder a la porción de la lista que empieza en el índice `100` y que termina en el índice `200` dando saltos de `50` en `50`. 
+
+Como podemos ver esto no es posible por que nuestra lista es muy pequeña, Python no nos lanzará ningún error pero si nos mostrará lo que considera correcto que es una lista vacía. 
+
+Si lo pensamos tiene sentido puesto que el rango de la lista al que queremos acceder está vacío. 
+
+</p>
+</details>
+
+---
+
+#### 45. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Intermedio </mark>
+
+```py
+lista_compras = ["huevos", "pan", "tomates", "leche"]
+lista_compras.insert(100, "peras")
+lista_compras.insert(-100, "manzanas")
+
+print(lista_compras) 
+```
+
+👉 **A.** `["huevos", "pan", "tomates", "leche"]`
+👉 **B.** `['manzanas', 'huevos', 'pan', 'tomates', 'leche', 'peras']`
+👉 **C.** `['peras', 'huevos', 'pan', 'tomates', 'leche', 'manzanas']`
+👉 **D.** `IndexError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **B.** `['manzanas', 'huevos', 'pan', 'tomates', 'leche', 'peras']`
+
+Al intentar hacer `lista_compras.insert(100, "peras")` en nuestra lista `lista_compras` buscamos insertar el item `peras` en el index `100` de nuestra lista cuya longitud es solo de `4` items. 
+Al ser `100` un index extremadamente lejano para nuestra pequeña lista esto debería dar un error, pero no. El interprete de Python lo pondrá en este caso hasta el final; por eso nuestra lista termina con el item `peras`.
+
+Del mismo modo al tratar con index negativos empezamos a asignar dichos index de derecha a izquierda, siendo `peras` el index `-1`, `leche` el index `-2` y así sucesivamente. El index `-100` nuevamente esta muy lejano pero Python lo asignará hasta el principio de la lista y por ello empieza con `manzanas`. 
+
+</p>
+</details>
+
+---
+
+#### 46. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+lista_compras = ["huevos", "pan"]
+print(lista_compras * int(3.5))
+```
+
+👉 **A.** `['huevos', 'pan', 'huevos', 'pan', 'huevos', 'pan']`
+👉 **B.** `['huevos', 'pan', 'huevos', 'pan']`
+👉 **C.** `["huevos", "pan"]`
+👉 **D.** `TypeError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **A.** `['huevos', 'pan', 'huevos', 'pan', 'huevos', 'pan']`
+
+`int(3.5)` nos dará `3` perdiendo así la parte flotante del número y `lista_compras * 3` repetirá nuestra lista por si misma tres veces y en su mismo orden. 
+
+
+</p>
+</details>
+
+---
+
+#### 47. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+lista_bebidas = ["agua", "jugo"]
+lista_bebidas[::-1]
+print(lista_bebidas)
+```
+
+👉 **A.** `["jugo", "agua"]`
+👉 **B.** `["jugo"]`
+👉 **C.** `["agua", "jugo"]`
+👉 **D.** `["agua"]`
+
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **C.** `["agua", "jugo"]`
+
+Una manera muy pythonesca de dar la vuelta una lista es usar la sintaxis `lista_bebidas[::-1]`, lo importante acá es saber que esta sintaxis es inmutable, ósea que no modifica la lista original.
+
+Efectivamente logramos dar la vuelta los items de la lista pero sin afectar a la lista original:
+
+```py
+lista_bebidas = ["agua", "jugo"]
+print(lista_bebidas[::-1]) # ['jugo', 'agua']
+print(lista_bebidas) # ['agua', 'jugo']
+```
+
+</p>
+</details>
+
+---
+
+#### 48. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+lista_1 = ["item1", "item2"]
+lista_2 = []
+lista_3 = ["item3", "item4"]
+
+print(lista_1 + lista_2 + lista_3)
+```
+
+👉 **A.** `['item1', 'item2', [], 'item3', 'item4']`
+👉 **B.** `['item1', 'item2', [''], 'item3', 'item4']`
+👉 **C.** `['item1', 'item2', 'item3', 'item4']`
+👉 **D.** `['item1', 'item2', '', 'item3', 'item4']`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **C.** `['item1', 'item2', 'item3', 'item4']`
+
+En Python es posible usar el operador `+` para "sumar" o mejor dicho concatenar listas. Su funcionamiento es muy simple e intuitivo, es como una suma de toda la vida pero con listas.
+
+En ese caso `lista_2` al contener una lista vacía es omitida y por ello no aparece en el resultado final. 
+
+</p>
+</details>
+
+---
+
+#### 49. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+frutas= ["manzana", "pera", "fresa"]
+frutas.extend("uva")
+print(frutas)
+```
+
+👉 A. ['uva', 'manzana', 'pera', 'fresa']
+👉 B. ['manzana', 'pera', 'fresa', ['uva']]
+👉 C. ['manzana', 'pera', 'fresa', 'uva']
+👉 D. ['manzana', 'pera', 'fresa', 'u', 'v', 'a']
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **D.** `['manzana', 'pera', 'fresa', 'u', 'v', 'a']`
+
+El método `extend` en Python lo usamos para unir listas, pero ¿qué pasa cuando intentamos unir una lista con, por ejemplo, una cadena de texto?
+
+`extend` va recorriendo item por item toda la lista, al llegar a `uva` se da cuenta que es un iterable de tipo cadena, entonces empieza a recorrer carácter por carácter todo el string y por ello el resultado es el mostrado. 
+
+</p>
+</details>
+
+---
+
+#### 50. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+numeros = [1,1,1,1,1,1]
+numeros[2:5] = [0,0,0]
+print(numeros)
+```
+
+👉 **A.** `[1, 1, 0, 0, 0, 1]`
+👉 **B.** `[1, 1, 0, 0, 0, 0]`
+👉 **C.** `[1, 0, 0, 0, 0, 0]`
+👉 **D.** `Ninguna de las anteriores`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **A.** `[1, 1, 0, 0, 0, 1]`
+
+En Python es posible asignar valores a trozos de un arreglo. En este caso cortamos el fragmento `[2, 5]` de la lista y en vez de `[1, 1, 1]` ponemos `[0, 0, 0]`. 
+
+</p>
+</details>
+
+---
+
+<!-- #### 51. Explica el siguiente código Python
 
 ➡️ Dificultad: <mark> Fácil </mark>
 
@@ -1118,9 +1469,6 @@ En síntesis, el parametro `entrada` que pasamos a la función es recibido **por
 </details>
 
 --- -->
-
-
-
 
 
 
