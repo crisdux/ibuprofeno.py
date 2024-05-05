@@ -1445,7 +1445,338 @@ En Python es posible asignar valores a trozos de un arreglo. En este caso cortam
 
 ---
 
-<!-- #### 51. Explica el siguiente código Python
+#### 51. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+numeros = [1,1,1,1,1,1]
+print(numeros.find(1))
+```
+
+👉 **A.** `1`
+👉 **B.** `AttributeError`
+👉 **C.** `SyntaxError`
+👉 **D.** `IndexError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **B.** `AttributeError`
+
+Si bien el método `find()` existe para las cadenas, las listas no cuentan con este método. Es por eso que obtenemos un `AttributeError`, esto significa que dicha propiedad no pertenece a un tipo o estructura de datos. 
+
+</p>
+</details>
+
+---
+
+#### 52. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+productos = ["helado", "pan", "queso"]
+precios = [15.5, 5, 29.99]
+
+for producto, precio in zip(productos, precios):
+  print(producto, precio)
+```
+
+👉 **A.** 
+```py
+helado 15.5
+pan 5
+queso 29.99
+```
+👉 **B.** 
+```py
+15.5 helado
+5 pan 
+29.99 queso 
+```
+👉 **C.** `AttributeError `
+👉 **D.** `NameError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **A.** 
+
+```py
+helado 15.5
+pan 5
+queso 29.99
+```
+
+`zip` en Python sirve para trabajar con listas en paralelo, en nuestro ejemplo cada producto en index `x` será emparejado con su respectivo precio en index `x` también y terminamos por recorrer ambas listas en un solo `for`. 
+
+</p>
+</details>
+
+---
+
+#### 53. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Intermedio </mark>
+
+```py
+print([0,0,0] > [2,0,10])
+```
+
+👉 **A.** `True`
+👉 **B.** `False`
+👉 **C.** `None`
+👉 **D.** `SyntaxError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **B.** `False`
+
+En Python podemos usar signos de comparación entre listas donde haremos dicha comparación item a item (por index), veamos esto paso por paso.
+
+Python hará las siguientes comparaciones en orden hasta que una sea falsa:
+
+* `0` > `2`
+* `0` > `0`
+* `0` > `10`
+
+La primera comparación de entrada es falsa, entonces el interprete de Python se detiene y regresa `False`.
+
+Para que regrese `True` todas y cada una de las comparaciones deben ser verdaderas. 
+
+</p>
+</details>
+
+---
+
+#### 54. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Intermedio </mark>
+
+```py
+my_string = "52,69,10,47,230,5,415,233"
+mi_list = [ int(value) for value in my_string.split(",") if len(value) == 3]
+print(mi_list)
+```
+
+👉 **A.** `[52, 69, 10, 47]`
+👉 **B.** `['230', '415', '233']`
+👉 **C.** `[230, 415, 233]`
+👉 **D.** `['230415233']`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **C.** `[230, 415, 233]`
+
+Las listas comprimidas son una característica brutal de Python. Permite al programador escribir listas complejas de una manera sencilla y en una sola línea de código.
+
+Para entender mejor como es que funcionan las listas comprimidas sugiero aprender primero su sintaxis:
+
+```py
+mi_list = [ VALUE LOOP CONDITION] 
+```  
+Donde:
+* `value`: es el valor que tendrá cada item en la lista.
+* `loop`: es el ciclo que usaremos para generar la lista.
+* `condition`: es la condición opcional que podemos usar para filtrar el resultado final de nuestra lista.
+
+Volviendo al ejemplo:
+
+* `value`: 
+`int(value)` indica que cada item de la lista resultante sera convertida a entero.
+
+* `loop`:
+`for value in my_string.split(",")` indica que iteraremos sobre la cadena `my_string` convirtiendola a una lista usando el método `split()` y almacenando cada item en una variable `value`.
+
+* `condition`:
+`if len(value) == 3` indica que solo tomaremos en cuenta a los items cuya longitud sea igual a `3` o en otras palabras, números de `3` digitos.
+
+Finalmente pasado todos los filtros el resultado final queda: `[230, 415, 233]`.
+
+</p>
+</details>
+
+---
+
+#### 56. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+my_tuple = ('a', 'b', 'c')
+my_tuple[0] = 'A'
+print(my_tuple)
+```
+
+👉 **A.** `('A', 'b', 'c')`
+👉 **B.** `('a', 'A', 'c')`
+👉 **C.** `ReferenceError`
+👉 **D.** `TypeError`
+
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **D.** `TypeError`
+
+Recordemos que las tuplas son estructuras de datos parecidas a las listas pero inmutables, dicho de otra manera, no podemos cambiar sus valores. 
+
+En este ejemplo intentamos cambiar el primer item de la tupla lo que es una violación clara a la naturaleza funcional de las tuplas, por ello obtenemos un `TypeError`.
+
+</p>
+</details>
+
+---
+
+#### 57. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+my_tuple = (123, 456, 789, 0)
+a, *b, c = my_tuple
+print(a, b, c)
+```
+
+👉 **A.** `123 [456, 789] 0`
+👉 **B.** `123 0 456 789`
+👉 **C.** `123 456 789`
+👉 **D.** `Ninguna de las anteriores`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **A.** `123 [456, 789] 0`
+
+Las tuplas poseen una característica denominada desempaquetado, esto significa que podemos acceder a sus valores en variables independientes.
+
+En este caso `a` vale `123`, `*b` al tener el asterisco valdrá todo lo que este en medio entre `a` y `c` y lo regresa como una lista, por ello `b` vale `[456, 789]` y finalmente `c` vale el último valor de nuestra tupla, ósea `0`.
+
+</p>
+</details>
+
+---
+
+#### 58. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+print(dict(["a1", "b2", "c3"]))
+```
+
+👉 **A.** `{'0': 'a1', '1': 'a2', '2': 'a3'}`
+👉 **B.** `{'a': '1', 'b': '2', 'c': '3'}`
+👉 **C.** `{'1': 'a', '2': 'b', '3': 'c'}`
+👉 **D.** `Ninguno de los anteriores`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **B.** `{'a': '1', 'b': '2', 'c': '3'}`
+
+La función `dict` de Python permite convertir variables a diccionarios, en este caso pasamos una lista que que sea convertida a diccionario. Python divide cada item y regresa para este ejemplo el primer carácter como llave y el segundo carácter como valor.
+
+</p>
+</details>
+
+---
+
+#### 59. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Intermedio </mark>
+
+```py
+my_dict = dict(["a1", "b2", "c3"])
+
+print(my_dict.get("d"))
+print(my_dict["d"])
+```
+
+👉 **A.** `0`, `0`
+👉 **B.** `KeyError`, `KeyError`
+👉 **C.** `None`, `KeyError`
+👉 **D.** `None`, `None`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **C.** `None`, `KeyError`
+
+En Python podemos acceder a los valores de un diccionario de 2 maneras diferentes:
+* Usando el método `get()`: regresa `None` en caso de que el par clave-valor no exista en el diccionario.
+* Usando la notación de corchetes: regresa el error `KeyError` y detiene la ejecución del programa.
+
+Ambas maneras sirven para lo mismo pero la diferencia radica en cuando no encontramos la propiedad en el diccionario. Esta característica es muy peculiar de Python y esta bueno saberlo. 
+
+</p>
+</details>
+
+---
+
+#### 60. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+my_dict = {"nombre": "John", "edad": 30, "ciudad": "New York"}
+
+my_dict["isSoltero"] = True
+my_dict["edad"] = 25
+
+print(my_dict)
+```
+
+👉 **A.** `{'nombre': 'John', 'edad': 30, 'ciudad': 'New York', 'isSoltero': True}`
+👉 **B.** `{'nombre': 'John', 'edad': 25, 'ciudad': 'New York', 'isSoltero': True}`
+👉 **C.** `{'nombre': 'John', 'edad': 25, 'ciudad': 'New York'}`
+👉 **D.** `{"nombre": "John", "edad": 30, "ciudad": "New York"}`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **B.** `{'nombre': 'John', 'edad': 25, 'ciudad': 'New York', 'isSoltero': True}`
+
+Al trabajar con Python y los diccionarios hay maneras de manipularlos, por ejemplo al usar la sintaxis de corchetes **con una llave que no existe** en nuestro diccionario como pasa con `my_dict["isSoltero"] = True`, Python procede a **agregar** un nuevo campo al diccionario con la `key` y `value` nuevos.
+
+Ahora bien, al usar la sintaxis de corches con una **llave que ya existe** en el diccionario, como es el caso de `my_dict["edad"] = 25` entonces procedemos a **modificar** la `value` de dicho campo, para el ejemplo cambiamos `edad` de `30` a `25`.
+
+El diccionario original era:
+```py
+my_dict = {"nombre": "John", "edad": 30, "ciudad": "New York"}
+```
+Pero agregamos el campo `isSoltero` con el valor de `True` y modificamos el campo `edad` de `30` a `25`: 
+```py
+my_dict = {'nombre': 'John', 'edad': 25, 'ciudad': 'New York', 'isSoltero': True}
+```
+
+</p>
+</details>
+
+<!-- ---
+
+#### 61. Explica el siguiente código Python
 
 ➡️ Dificultad: <mark> Fácil </mark>
 
@@ -1469,6 +1800,4 @@ En Python es posible asignar valores a trozos de un arreglo. En este caso cortam
 </details>
 
 --- -->
-
-
 
