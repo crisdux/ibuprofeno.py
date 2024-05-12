@@ -1774,9 +1774,354 @@ my_dict = {'nombre': 'John', 'edad': 25, 'ciudad': 'New York', 'isSoltero': True
 </p>
 </details>
 
-<!-- ---
+---
 
 #### 61. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+keys = "xyz"
+my_dict = {}
+
+for index, value in enumerate(keys, start=1):
+    my_dict[index] = value
+
+print(my_dict)
+```
+
+👉 **A.** {1: 'xyz', 2: 'xyz', 3: 'xyz'}
+👉 **B.** {x: '1', y: '2', z: '3'}
+👉 **C.** {1: 'x', 2: 'y', 3: 'z'}
+👉 **D.** {0: 'x', 1: 'y', 2: 'z'}
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **C.** {1: 'x', 2: 'y', 3: 'z'}
+
+Podemos llenar de manera dinámica un diccionario.
+
+En este aso recorremos la cadena keys tanto sus valores como sus indices haciendo uso de la función `enumerate()` empezando desde `1`; a cada iteración asignamos a cada index un valor: `1 -> x`, `2 -> y` y `3 -> z`; mostramos por consola el resultado.
+
+</p>
+</details>
+
+---
+
+#### 62. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+my_dict = {"name": "John", "age": 30, "city": "New York"}
+
+print("name" in my_dict)
+print(len(my_dict))
+```
+
+👉 **A.** True, 3
+👉 **B.** True, 2
+👉 **C.** True, TypeError
+👉 **D.** False, 3
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **A.** True, 3
+
+Para saber si existe una determinada llave en el diccionario podemos usar el operador `in` que regresa `True` o `False` dependiendo que si existe o no dicha llave. Como `name` existe en `my_dict` regresamos `True`.
+
+Usamos `len` para saber la longitud del diccionario, entendemos por longitud la cantidad de pares clave-valor que contiene el diccionario:
+
+```py
+"name": "John" # 1
+"age": 30 # 2
+"city": "New York" # 3
+```
+Hay tres pares clave-valor, entonces regresamos `3`. 
+
+</p>
+</details>
+
+---
+
+#### 63. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+my_dict = {"name": "John", "age": 30, "city": "New York"}
+
+for key, value in my_dict.items():
+    print(f"{key}: {value}")
+```
+
+👉 **A.** `KeyError`
+👉 **B.** `TypeError`
+👉 **C.** `SyntaxError`
+👉 **D.**
+```py
+name: John
+age: 30
+city: New York
+```
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **D.**
+```py
+name: John
+age: 30
+city: New York
+```
+
+</p>
+</details>
+
+---
+
+#### 64. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+my_dict = {"name": "John", "age": 30, "city": "New York"}
+del my_dict["age"]
+print(my_dict)
+```
+
+👉 **A.** `{'name': 'John', 'city': 'New York'}`
+👉 **B.** `{"name": "John", "age": 30, "city": "New York"}`
+👉 **C.** `SyntaxError`
+👉 **D.** `TypeError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅  **A.** `{'name': 'John', 'city': 'New York'}`
+
+Una manera de poder eliminar pares clave-valor de un diccionario es usando el operador `del`. Su sintaxis es muy sencilla de usar e intuitiva de entender.
+
+</p>
+</details>
+
+---
+
+#### 65. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+my_dict = {"name": "John", "age": 30, "city": "New York"}
+my_dict.pop("last_name")
+print(my_dict)
+```
+
+👉 **A.** `TypeError`
+👉 **B.** `SyntaxError`
+👉 **C.** `KeyError`
+👉 **D.** `{"name": "John", "age": 30, "city": "New York"}`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **C.** `KeyError`
+
+Podemos usar el método `pop()` para eliminar items de un diccionario pero siempre y cuando estemos seguros de que la key existe en dicho diccionario.
+
+Cuando esto se cumple eliminar un item es sencillo, pero cuando no obtendremos un `KeyError` al no poder encontrar que es lo que se desea eliminar. Ojo con eso! 
+
+</p>
+</details>
+
+---
+
+#### 66. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Intermedio </mark>
+
+```py
+my_dict = {"a":1, "b":2}
+my_dict2 = {"x":-1, "y":-2}
+print({**my_dict, **my_dict2})
+```
+
+👉 **A.** `{'a': 1, 'b': 2}`, `{'x': -1, 'y': -2}`
+👉 **B.** `{'a': 1, 'b': 2, 'x': -1, 'y': -2}`
+👉 **C.** `[{'a': 1, 'b': 2}, {'x': -1, 'y': -2}]`
+👉 **D.** `({'a': 1, 'b': 2}, {'x': -1, 'y': -2})`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **B.** `{'a': 1, 'b': 2, 'x': -1, 'y': -2}`
+
+Podemos usar el operador `**` para poder combinar diccionarios en Python. **El resultado será un nuevo diccionario** con todos las claves llave-valor de los diccionarios a combinar. 
+
+</p>
+</details>
+
+---
+
+#### 67. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Intermedio </mark>
+
+```py
+my_dict = {"a":1, "b":2}
+my_dict2 = {"x":-1, "y":-2}
+print(my_dict | my_dict2)
+```
+
+👉 **A.** `{'a': 1, 'b': 2}`, `{'x': -1, 'y': -2}`
+👉 **B.** `{'a': 1, 'b': 2, 'x': -1, 'y': -2}`
+👉 **C.** `[{'a': 1, 'b': 2}, {'x': -1, 'y': -2}]`
+👉 **D.** `({'a': 1, 'b': 2}, {'x': -1, 'y': -2})`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **B.** `{'a': 1, 'b': 2, 'x': -1, 'y': -2}`
+
+A partir de Python 3.9 podemos usar el operador `|` para poder combinar diccionarios sin la necesidad de crear uno nuevo. Es un manera más moderna de llegar al mismo resultado. 
+
+</p>
+</details>
+
+---
+
+#### 68. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Intermedio </mark>
+
+```py
+my_dict = {"a":1, "b":2}
+copy_my_dict = my_dict
+my_dict["c"] = 3
+print(copy_my_dict)
+```
+
+👉 **A.** `TypeError`
+👉 **B.** `{'a': 1, 'b': 2, 'c': 3}`
+👉 **C.** `{'a': 1, 'b': 2}`
+👉 **D.** `Ninguna de las anteriores`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **B.** `{'a': 1, 'b': 2, 'c': 3}`
+
+
+En Python los diccionarios se manipulan por referencia, esto quiere decir que `copy_my_dict` no es un nuevo diccionario sino que solo es una copia de la referencia al diccionario orinal `my_dict`, dicho de otra manera, cualquier cambio que se haga a la copia también se hará a al original por que comparten la misma dirección de memoria. 
+
+Para solucionar esto podemos hacer uso del método `copy`:
+
+```py
+my_dict = {"a":1, "b":2}
+copy_my_dict = my_dict.copy()
+my_dict["c"] = 3
+print(copy_my_dict) ## {'a': 1, 'b': 2}
+```
+
+De esta manera el cambio solo se ve reflejado en la copia y no así en la variable original. 
+
+</p>
+</details>
+
+---
+
+#### 69. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+print("\")
+```
+
+👉 **A.** `\`
+👉 **B.** `SyntaxError`
+👉 **C.** `/`
+👉 **D.** `NameError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **B.** `SyntaxError`
+
+La barra invertida en la gran mayoría de los lenguajes de programación es usada para escapar caracteres, en este caso no podemos imprimir una barra invertida por consola justamente por que Python interpreta que deseamos escapar algún carácter.
+
+Para que esto funcione necesitamos hacer `print("\\")` para obtener `\` por consola. 
+
+</p>
+</details>
+
+---
+
+#### 70. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+print("Mi", "nombre", "es", sep="_", end="*")
+print("Monty", "Python.", sep="*", end="*\n")
+```
+
+👉 **A.** `Mi_nombre_es Monty*Python.*`
+👉 **B.** `Mi*nombre*es*Monty_Python.*`
+👉 **C.** `Mi_nombre_es*Monty*Python.*`
+👉 **D.** `Mi_nombre_es*Monty*Python._`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **C.** `Mi_nombre_es*Monty*Python.*`
+
+La función `print` de Python puede recibir **argumentos de palabra clave** como:
+* `sep()`: que significa _separador_, y hace justamente eso, separa mediante un carácter los parámetros de `print`.
+* `end()`: determina cual será el último carácter que imprimiremos.
+
+En nuestro ejemplo, para el primer `print`:
+```py
+print("Mi", "nombre", "es", sep="_", end="*")
+## separamos con _ y terminamos el print con *
+## Mi_nombre_es*
+```
+y para el segundo print
+```py
+print("Monty", "Python.", sep="*", end="*\n")
+## separemos con * y terminamos con un * y un salto de línea
+## Mi_nombre_es*Monty*Python.*
+```
+Así de fácil, así de sencillo. 
+
+</p>
+</details>
+
+---
+
+<!-- #### 71. Explica el siguiente código Python
 
 ➡️ Dificultad: <mark> Fácil </mark>
 
@@ -1797,7 +2142,4 @@ my_dict = {'nombre': 'John', 'edad': 25, 'ciudad': 'New York', 'isSoltero': True
 ✅
 
 </p>
-</details>
-
---- -->
-
+</details> -->
