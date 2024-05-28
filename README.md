@@ -2121,7 +2121,327 @@ Así de fácil, así de sencillo.
 
 ---
 
-<!-- #### 71. Explica el siguiente código Python
+#### 71. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+print(sep=".", "hola", "mundo")
+```
+
+👉 **A.** `hola.mundo`
+👉 **B.** `.hola mundo`
+👉 **C.** `SyntaxError`
+👉 **D.** `Ninguna de las anteriores`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **C.** `SyntaxError`
+
+Los **argumentos de palabra reservada** como `end` y `sep` (para la función `print`) deben ir siempre luego del último argumento posicional.
+En nuestro ejemplo, los únicos argumentos posicionales que tenemos son `hola` y `mundo`, por ende para que funcione deberíamos reescribirlo de la siguiente manera: 
+
+```py
+print("hola", "mundo", sep=".")  ## hola.mundo
+```
+
+</p>
+</details>
+
+---
+
+#### 72. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+i = 5
+while i < 5:
+    print(i)
+    i += 1
+else:
+    print("else:", i)
+```
+
+👉 **A.** `else: 5`
+👉 **B.** `else: 4`
+👉 **C.** `5`
+👉 **D.** `No imprime nada`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **A.** `else: 5`
+
+En Python los bucles pueden tener una sentencia `else`, esta característica es muy propia y peculiar de Python.
+
+Por mas que a priori el bucle nunca llega a ejecutarse, el bloque `else` siempre lo hará, por este motivo la variable `i` se queda con el valor de `5` y eso es lo que se muestra por pantalla. 
+
+</p>
+</details>
+
+---
+
+#### 73. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+print(list("Hola python"))
+```
+
+👉 **A.** `['Hola', ' ', 'python']`
+👉 **B.** `['H', 'o', 'l', 'a', ' ', 'p', 'y', 't', 'h', 'o', 'n']`
+👉 **C.** `SyntaxError`
+👉 **D.** `Ninguna de las anteriores`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **B.** `['H', 'o', 'l', 'a', ' ', 'p', 'y', 't', 'h', 'o', 'n']`
+
+En Python podemos usar la función `list()` para convertir valores iterables (como por ejemplo un string) a una lista. De esta manera, cada caracter del iterable se convierte en un item para la lista. 
+
+</p>
+</details>
+
+---
+
+#### 74. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+print(list(range(1,11,2)))
+```
+
+👉 **A.** `[0, 3, 5, 7, 9]`
+👉 **B.** `[3, 5, 7, 9, 11]`
+👉 **C.** `[2, 4, 6, 8, 10]`
+👉 **D.** `[1, 3, 5, 7, 9]`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **D.** `[1, 3, 5, 7, 9]`
+
+En Python podemos crear listas usando la función `list()` y pasarle un intervalo usando la función `range()`. Esto hará que tengamos un item por cada valor que nos regrese `range()` y se almacene en una lista. 
+
+</p>
+</details>
+
+---
+
+#### 75. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+test = list(range(11))
+test[:6] = [10, 10, 10, 10, 10]
+print(test)
+```
+
+👉 **A.** `[10, 10, 10, 10, 10]`
+👉 **B.** `[1, 2, 3, 4, 5, 6, 10, 10, 10, 10, 10]`
+👉 **C.** `[10, 10, 10, 10, 10, 6, 7, 8, 9, 10]`
+👉 **D.** `[0, 1, 2, 3, 4, 5]`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **C.** `[10, 10, 10, 10, 10, 6, 7, 8, 9, 10]`
+
+Vamos línea por línea:
+* `test = list(range(11))`: 
+Creamos en la variable test una lista de números, del 0 al 10. Tendríamos: `[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]`
+
+* `test[:6] = [10, 10, 10, 10, 10]`:
+De la posición 0 a la posición 5 agregamos el arreglo `[10, 10, 10, 10, 10]` 
+
+* `print(test)`:
+Imprimimos el resultado: `[10, 10, 10, 10, 10, 6, 7, 8, 9, 10]`
+
+</p>
+</details>
+
+---
+
+#### 76. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+numeros = list(range(2, 16, 3))
+del numeros[-1]
+numeros.remove(2)
+print(numeros)
+```
+
+👉 **A.** `[5, 8, 11, 14]`
+👉 **B.** `[5, 8, 11]`
+👉 **C.** `[2, 5, 8, 11]`
+👉 **D.** `[5, 8, 11, 14]`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **B.** `[5, 8, 11]`
+
+En Python podemos borrar items de una lista por índice o por valor.
+Al hacer `del numeros[-1]` eliminamos por índice el último item de la lista `numeros`.
+Al hacer `numeros.remove(2)` eliminamos el item con el valor de `2` de la lista `numeros`; si es que hubiera items repetidos este solo elimina el primero que coincida. 
+
+</p>
+</details>
+
+---
+
+#### 77. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Intermedio </mark>
+
+```py
+cadena = "3+5"
+print(cadena.partition("+"))
+```
+
+👉 **A.** `(3, '+', 5)`
+👉 **B.** `('3', '+', '5')`
+👉 **C.** `['3', '+', '5']`
+👉 **D.** `Ninguna de las anteriores`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **B.** `('3', '+', '5')`
+
+La función `partition()` en Python se utiliza para dividir una cadena en una tupla de tres partes, utilizando un separador especificado. Esta función devuelve una tupla que contiene tres elementos:
+* La parte de la cadena antes del separador.
+* El separador mismo.
+* La parte de la cadena después del separador.
+
+La sintaxis general es:
+```py
+cadena.partition(separador)
+```
+Donde `cadena` es la cadena en la que deseas realizar la partición y `separador` es el carácter o subcadena que se utiliza para dividir la cadena. Es importante tener en cuenta que `partition()` devuelve una tupla incluso si el separador no está presente en la cadena.
+
+</p>
+</details>
+
+---
+
+#### 78. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+dos = two = deux = 2
+print((dos + two - 2)**deux)
+```
+
+👉 **A.** `2`
+👉 **B.** `16`
+👉 **C.** `4`
+👉 **D.** `SyntaxError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **C.** `4`
+
+En Python podemos asignar el valor a varias variables en una sola línea. En nuestro ejemplo las 3 variables tendrán el valor de `2`, dicho esto tendremos algo como: `(2 + 2 - 2)**2` dando como resultado `4`.
+
+</p>
+</details>
+
+---
+
+#### 79. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+var = 1
+print(bool(var) + float("1"))
+```
+
+👉 **A.** `True1`
+👉 **B.** `11`
+👉 **C.** `2`
+👉 **D.** `2.0`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **D.** `2.0`
+
+Vamos parte por parte:
+* `var` vale `1`.
+* Tendríamos `bool(1)` que es igual a `True` por conversión de tipos (en Python `0` equivale a `False` y `1` equivale a `True`).
+* Luego `float("1")` convierte a la cadena `"1"` en un número con punto decimal, entonces nos daría `1.0`.
+* Nos quedaría: `True + `1.0`, recordemos que `True` equivale a `1`. Entonces tendríamos: `1 + 1.0`, el resultado final `2.0`
+
+</p>
+</details>
+
+---
+
+#### 80. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+# ¿Cuál de las siguientes sentencias es la incorrecta? 
+x = "hola"
+print("El valor de a es: " + x) # A
+print("El valor de a es:", x) # B
+print(f"El valor de a es: {x}") # C
+```
+
+👉 **A.** `A`
+👉 **B.** `B`
+👉 **C.** `C`
+👉 **D.** `Todas son correctas`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **D.** `Todas son correctas`
+
+En Python podemos concatenar valores de muchas maneras, 3 de ellas son:
+* Usando el operador `+`.
+* Usando una simple `,`.
+* Usando lo que se denomina un f-string e interpolar el valor final.
+
+</p>
+</details>
+
+---
+
+<!-- #### 81. Explica el siguiente código Python
 
 ➡️ Dificultad: <mark> Fácil </mark>
 
