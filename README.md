@@ -2441,7 +2441,298 @@ En Python podemos concatenar valores de muchas maneras, 3 de ellas son:
 
 ---
 
-<!-- #### 81. Explica el siguiente código Python
+#### 81. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+print(type(float(True) + int("1")) == "int")
+
+```
+
+- **A.** `True`
+- **B.** `False`
+- **C.** `None`
+- **D.** `TypeError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **B.** `False`
+
+Vamos por partes:
+* `float(True)` será igual a `1.0`.
+* `int("1")` será igual a `1`.
+* `type(1.0 + 1)` será igual a `class <float>`.
+* `float` es diferente de `int`, por ende el resultado es `False`.
+
+</p>
+</details>
+
+#### 82. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+print(len("1.0"))
+```
+
+- **A.** `3`
+- **B.** `2`
+- **C.** `1`
+- **D.** `TypeError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **A.** `3`
+
+La función `len` de Python sirve para obtener la longitud de un iterable, por ejemplo una cadena o una lista, en este caso la cadena `1.0` tiene `3` caracteres: `1`, `.` y `0`.
+
+</p>
+</details>
+
+#### 83. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+print(len(1.0))
+```
+
+- **A.** `3`
+- **B.** `2`
+- **C.** `1`
+- **D.** `TypeError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **D.** `TypeError`
+
+La función `len` de Python sirve para obtener la longitud de un iterable, por ejemplo una cadena o una lista, en este caso la intentamos obtener la longitud de un `float` por lo que tendremos un `TypeError` por consola.
+
+</p>
+</details>
+
+#### 84. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Intermedio </mark>
+
+```py
+def f(text, target_word, replace_word):
+    index_target_word = text.find(target_word)
+    x = text[0:index_target_word]
+    y = text[index_target_word + len(target_word):len(text)]
+    return f"{x}{replace_word}{y}"
+
+print(f("Keep calm and write Python", "write", "enjoy"))
+```
+
+- **A.** `Keep calm and write Python`
+- **B.** `Keep calm and enjoy Python`
+- **C.** `IndexError`
+- **D.** `TypeError`
+
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **B.** `Keep calm and enjoy Python`
+
+La función `f` implementa un algoritmo para buscar y remplazar una palabra dada por otra sin el uso de la función `replace` de Python. 
+
+Usando `find()` y dividiendo la cadena podemos lograr lo que se pretende. 
+
+</p>
+</details>
+
+#### 85. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+mensaje = "Mi amigo Pedro juega fútbol. !Que bien juega Pedro¡"
+print(mensaje.replace("Pedro", "Carlos", 1))
+```
+
+- **A.** `Mi amigo Carlos juega fútbol. !Que bien juega Carlos¡`
+- **B.** `Mi amigo Carlos juega fútbol. !Que bien juega Pedro¡`
+- **C.** `Mi amigo Pedro juega fútbol. !Que bien juega Pedro¡`
+- **D.** `Ninguno de los anteriores`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **B.** `Mi amigo Carlos juega fútbol. !Que bien juega Pedro¡`
+
+La función `replace` de Python permite remplazar una cadena dada por otra. Por defecto remplaza todas las coincidencias que se encuentre pero podemos modificar este comportamiento.
+
+`replace` recibe un tercer argumento de tipo entero que representa la cantidad de veces que queremos que se haga el remplazo.
+
+En nuestro ejemplo solo queremos que se haga 1 vez. 
+
+</p>
+</details>
+
+#### 86. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Intermedio </mark>
+
+```py
+monto = 35_200
+print(f"{monto:010d}")
+```
+
+- **A.** `0000035200`
+- **B.** `0000035_200`
+- **C.** `000035_200`
+- **D.** `35200`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **A.** `0000035200`
+
+En Python podemos usar los f-string no solo para interpolar valores, sino que también podemos ir un poco mas lejos y usarlo para dar formato a diferentes tipos de datos.
+
+En este caso usamos la sintaxis `monto:010d` donde:
+* `monto` es un número entero.
+* La letra `d` se usa para formatear _digitos_ enteros.
+* El valor `010` significa que el formato del resultado final debe contener en total 10 dígitos y los espacios faltantes deben ser rellenados con `0's` delante.
+
+</p>
+</details>
+
+#### 87. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+cadena = "Hola mundo"
+print(f"{cadena=}")
+```
+
+- **A.** `{cadena=}`
+- **B.** `cadena='Hola mundo'`
+- **C.** `Hola mundo`
+- **D.** `SyntaxError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **B.** `cadena='Hola mundo'`
+
+Desde Python 3.8 podemos usar los f-string no solo para interpolar variables o dar formato, sino que también tenemos la posibilidad de usarlos para hacer debugging del código.
+
+Esto se logra agregando el signo `=` al la variable que queramos imprimir. De esta manera no solo imprimimos su valor, sino también el nombre de la variable y su respectivo valor en ese momento de la ejecución. 
+
+</p>
+</details>
+
+#### 88. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+def f(n):
+    aux = 5
+    r = []
+    while aux <= n:
+        r.append(aux)
+        aux +=5
+    return r
+print(f(36))
+```
+
+- **A.** `[10, 15, 20, 25, 30, 35]`
+- **B.** `[5, 10, 15, 20, 25, 30, 35]`
+- **C.** `[5, 10, 15, 20, 25, 30]`
+- **D.** `SyntaxError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **B.** `[5, 10, 15, 20, 25, 30, 35]`
+
+Lo que hace nuestra función solamente es agregar los numeros múltiplos menores a un número dado, en este caso, todos los menores a 36. 
+
+Almacenamos cada valor en un lista y la imprimimos por consola. 
+
+</p>
+</details>
+
+#### 89. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Intermedio </mark>
+
+```py
+i = range(6)
+print(type(i))
+```
+
+- **A.** `<class 'tuple'>`
+- **B.** `<class 'list'>`
+- **C.** `<class 'range'>`
+- **D.** `<class 'int'>`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **C.** `<class 'range'>`
+
+Cuando usamos la función `range()` creamos un objeto de tipo de `range` en Python. Los objetos de tipo `range` son eficientes y óptimos para ser recorridos por bucles.
+
+</p>
+</details>
+
+#### 90. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+f = "A"
+print(int(f, 16))
+```
+
+- **A.** `10`
+- **B.** `16`
+- **C.** `A`
+- **D.** `1`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **A.** `10`
+
+La función `int` de Python es útil para realizar conversiones de tipo a entero, pero la base no siempre tiene que ser decimal, podemos convertir valores a otros sistemas numéricos como por ejemplo el octal (en base 8) y el hexadecimal (en base 16).
+
+En el ejemplo convertimos la letra `A` a hexadecimal, lo que nos dará el resultado de `10`.
+
+</p>
+</details>
+
+<!-- #### 91. Explica el siguiente código Python
 
 ➡️ Dificultad: <mark> Fácil </mark>
 
