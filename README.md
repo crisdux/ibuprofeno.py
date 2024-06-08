@@ -2732,7 +2732,347 @@ En el ejemplo convertimos la letra `A` a hexadecimal, lo que nos dará el result
 </p>
 </details>
 
-<!-- #### 91. Explica el siguiente código Python
+#### 91. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+x = (1,"2",3)
+print(list(x))
+```
+
+- **A.** `(1,"2",3)`
+- **B.** `[1, 2, 3]`
+- **C.** `[1, "2", 3]`
+- **D.** `SyntaxError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **C.** `[1, "2", 3]`
+
+La función `list` es muy útil para poder convertir iterables a listas. En nuestro ejemplo convertimos la tupla `x` a una lista respetando el tipo de dato de cada elemento.
+
+</p>
+</details>
+
+
+#### 92. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+shopping = ["Agua", "Huevos", "Aceite", "Sal", "Limón"]
+print(shopping[::-1])
+```
+
+- **A.** `["Agua", "Huevos", "Aceite", "Sal", "Limón"]`
+- **B.** `['Limón', 'Sal', 'Aceite', 'Huevos', 'Agua']`
+- **C.** `['Limón']`
+- **D.** `["Agua"]`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **B.** `['Limón', 'Sal', 'Aceite', 'Huevos', 'Agua']`
+
+Al igual que con las cadenas, podemos trocear listas en Python.
+La sintaxis es la misma:
+
+```py
+[ <inicio>, <final>, <salto> ]
+```
+Donde:
+* `<inicio>`: desde donde queremos cortar
+* `<final>`: hasta donde queremos cortar
+* `<salto>`: de cuanto en cuantos item queremos cortar
+
+Una manera peculiar de usar esta manera de cortar listas es invertir una lista: `[::-1]`.
+
+En este caso no tenemos `<inicio>` ni `<final>`, lo que significa que abarcaremos toda la lista, el `<salto>` es de `-1` en `-1` lo que quiere decir que empezaremos por el último item hasta llegar al primero. En otras palabras la lista quedara invertida. 
+
+</p>
+</details>
+
+#### 93. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Intermedio </mark>
+
+```py
+bebidas = ["Agua", "Coca-Cola"]
+bebidas.extend("Cerveza")
+print(bebidas)
+```
+
+- **A.** `["Agua", "Coca-Cola", "Cerveza"]`
+- **B.** `["Agua", "Coca-Cola", ["Cerveza"]]`
+- **C.** `["Cerveza", "Agua", "Coca-Cola"]`
+- **D.** `['Agua', 'Coca-Cola', 'C', 'e', 'r', 'v', 'e', 'z', 'a']`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **D.** `['Agua', 'Coca-Cola', 'C', 'e', 'r', 'v', 'e', 'z', 'a']`
+
+El método `extends` en Python no es útil para **concatenar listas**, lo que significa que podemos fusionar 2 o más listas de manera sencilla.
+
+En nuestro ejemplo intentamos concatenar la lista `bebidas` con la cadena `Carveza`, esto si bien no nos dará ningún error si nos arrojará un resultado inesperado.
+
+`extends` recorre cada elemento de la lista para poder concatenarlo, pero en nuestro caso recorre cada carácter de la cadena `Cerveza` y lo concatenado carácter por carácter.
+
+Si queremos **concatenar listas** podemos usar el operador `+` o el método `extend`.
+
+Si queremos **agregar un item a una lista** podemos usar `append` o `insert` 
+
+</p>
+</details>
+
+#### 94. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+bebidas = ["Agua", "Coca-Cola"]
+bebidas.append(["Pepsi"])
+print(bebidas)
+```
+
+- **A.** `["Agua", "Coca-Cola", "Pepsi"]`
+- **B.** `["Agua", "Coca-Cola", ["Pepsi"]]`
+- **C.** `["Agua", "Coca-Cola", ["P","e","p","s","i"]]`
+- **D.** `["Pepsi", "Agua", "Coca-Cola"]`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **B.** `['Agua', 'Coca-Cola', ['Pepsi']]`
+
+`append` sirve para agregar un item al final de una lista, ojo, dije **agregar un item**.
+
+En nuestro ejemplo estamos agregando una lista al final de nuestra lista `bebidas`, esto no da ningún error pero regresa una lista anidada que usualmente no es lo que queremos.
+
+Para concatenar listas se debe usar el operador `+` o la función `extend`.
+
+```py
+bebidas = ["Agua", "Coca-Cola"]
+print(bebidas + ["Pepsi"]) # ['Agua', 'Coca-Cola', 'Pepsi']
+
+bebidas.extend(["Pepsi"]) 
+print(bebidas) # ['Agua', 'Coca-Cola', 'Pepsi']
+
+
+</p>
+</details>
+
+#### 95. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+bebidas = ["Agua", "Coca-Cola"]
+bebidas[2] = "Pepsi"
+print(bebidas)
+```
+
+- **A.** `["Agua", "Coca-Cola", "Pepsi"]`
+- **B.** `["Agua", "Pepsi"]`
+- **C.** `TypeError`
+- **D.** `IndexError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **D.** `IndexError`
+
+En Python no solo es posible acceder a los items de un arreglo por su índice, también podemos modificar elementos accediendo a un índice en particular.
+
+El detalle de nuestro ejemplo es que queremos modificar una posición de nuestro arreglo que no existe, ello deriva a un error de tipo `IndexError`.
+
+Una solución podría ser sustituir un item que si existe, por ejemplo: 
+
+```py
+bebidas = ["Agua", "Coca-Cola"]
+bebidas[1] = "Pepsi"
+print(bebidas) # ['Agua', 'Pepsi']
+```
+
+</p>
+</details>
+
+#### 96. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+bebidas = ["Agua", "Coca-Cola", "Pepsi"]
+bebidas[0:2] = ["Limonada", "Fanta"]
+print(bebidas)
+```
+
+- **A.** `["Pepsi", "Limonada", "Fanta"]`
+- **B.** `["Limonada", "Fanta", "Agua", "Coca-Cola", "Pepsi"]`
+- **C.** `["Limonada", "Fanta", "Pepsi"]`
+- **D.** `IndexError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **C.** `["Limonada", "Fanta", "Pepsi"]`
+
+En Python podemos tomar un intervalo de un lista para poder sustituirlo por otro.
+
+Lograr esto es muy sencillo, solo tenemos que seleccionar el trozo de lista a sustituir y remplazarla por el nuevo trozo.
+
+En nuestro ejemplo cortamos `[0:2]`, ósea `["Agua", "Coca-Cola"]`, para poder remplazarlo por `["Limonada", "Fanta"]`.
+
+Es importante mencionar que el trozo a cortar no necesariamente debe ser del mismo tamaño que el trozo a agregar, por ejemplo:
+
+```py
+bebidas = ["Agua", "Coca-Cola", "Pepsi"]
+bebidas[0:2] = ["Limonada", "Fanta", "Agua con gas", "Sprite"]
+print(bebidas) # ['Limonada', 'Fanta', 'Agua con gas', 'Sprite', 'Pepsi']
+```
+
+</p>
+</details>
+
+#### 97. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Intermedio </mark>
+
+```py
+numeros = [42,96,12,20,36]
+del numeros[100]
+print(numeros)
+```
+
+- **A.** `TypeError`
+- **B.** `SyntaxError`
+- **C.** `NameError`
+- **D.** `IndexError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **D.** `IndexError`
+
+Para eliminar un item de una lista podemos usar el operador `del` seguido de la posición que queremos eliminar. 
+
+En este sentido, ¿qué sucede si la posición que queremos eliminar no existe dentro de la lista? Entonces el interprete de Python nos regresa un `IndexError`. 
+
+Para solucionar esto debemos eliminar siempre posiciones de la lista que sabemos que existen:
+
+```py
+numeros = [42,96,12,20,36]
+del numeros[2]
+print(numeros) # [42, 96, 20, 36]
+```
+
+</p>
+</details>
+
+#### 98. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+numeros = [42,96,12,20,36]
+numeros.remove(20)
+print(numeros) 
+```
+
+- **A.** `[42, 96, 12, 36]`
+- **B.** `ValueError`
+- **C.** `IndexError`
+- **D.** `[42, 96, 12, 36, 20]`
+
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **D.** `[42, 96, 12, 36, 20]`
+
+Otra manera de eliminar items de una lista en Python es usando el método `remove()` y pasarle el item a borrar.
+
+Cuando tenemos 2 o mas items repetidos en la lista, entonces solo se borra la primera coincidencia que encuentre.
+
+</p>
+</details>
+
+#### 99. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+numeros = [42,96,12,20,36]
+print(numeros.pop(), numeros) 
+```
+
+- **A.** `36`, `[42, 96, 12, 20]`
+- **B.** `42`, `[96, 12, 20, 36]`
+- **C.** `12`, `[42, 96, 20, 36]`
+- **D.** `TypeError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **A.** `36`, `[42, 96, 12, 20]`
+
+Podemos eliminar items usando la función `pop()` de Python. A diferencia de usar `del` o `remove` que solo eliminaban el item y ya, `pop` es diferente ya que en efecto lo elimina pero también regresa el item eliminado.
+
+Por ello la salida es `36` (elimina el último item) y luego la lista queda `[42, 96, 12, 20]`.
+
+</p>
+</details>
+
+#### 100. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+# reto #100 😎
+mi_lista = [True, "hi", "bye", (1,2,3), {"1": "uno"}]
+mi_lista.clear()
+print(mi_lista)
+```
+
+- **A.** `()`
+- **B.** `[]`
+- **C.** `{}`
+- **D.** `SyntaxError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **B.** `[]`
+
+La manera mas sencilla de eliminar todos los items de una lista es usando la función `clear()`.
+
+
+</p>
+</details>
+
+<!-- #### 101. Explica el siguiente código Python
 
 ➡️ Dificultad: <mark> Fácil </mark>
 
