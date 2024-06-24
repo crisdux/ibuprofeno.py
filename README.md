@@ -3072,7 +3072,326 @@ La manera mas sencilla de eliminar todos los items de una lista es usando la fun
 </p>
 </details>
 
-<!-- #### 101. Explica el siguiente código Python
+#### 101. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Intermedio </mark>
+
+```py
+text = "hi"
+a = len(text) == 2
+b = text.endswith("i")
+c = text.islower()
+
+if all([a, b, c]):
+    print("👌")
+else:
+    print("🔴")
+```
+
+- A. `SyntaxError`
+- B. `👌`
+- C. `🔴`
+- D. `ValueError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **B.** 👌
+
+En Python tenemos palabras clave para agrupar un conjunto de condiciones, en este caso vemos `all` que significa que todas las condiciones tienen que evaluar a `True` para que pase y se ejecute el bloque de código siguiente.
+
+En nuestro ejemplo la palabra `hi` cumple las condiciones `a`, `b` y `c` por lo tanto pasa y se ejecuta el if.
+
+
+</p>
+</details>
+
+#### 102. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+x = 1,
+print(type(x))
+```
+
+- A. `<class 'list'>`
+- B. `<class 'tuple'>`
+- C. `<class 'dict'>`
+- D. `SyntaxError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **B.** `<class 'tuple'>`
+
+Si bien no se recomienda es posible escribir una tupla con una sintaxis sin paréntesis.
+
+</p>
+</details>
+
+#### 103. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+x = ("hola", "como", "estas", "?")
+x.append("?")
+print(x)
+```
+
+👉 **A.** `("hola", "como", "estas", "?", "?")`
+👉 **B.** `AttributeError`
+👉 **C.** `SyntaxError`
+👉 **D.** `NameError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+ 
+✅ **B.** `AttributeError`
+
+Las tuplas tienen las mismas características de las listas pero con la peculiaridad de que son inmutables. Esto significa que no podemos alterar ningún item de una tupla.
+
+No podemos usar ningún método que mute la tupla, por ejemplo:
+
+* append()
+* remove()
+* extend()
+* reverse()
+* clear()
+* sort()
+
+</p>
+</details>
+
+#### 104. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+z = (4, 8, 12)
+cuatro, ocho, doce = z
+print(doce)
+```
+
+- **A.** `4`
+- **B.** `8`
+- **C.** `12`
+- **D.** `Ninguna de las anteriores`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **C.** `12`
+
+Python posee una característica denominada desempaquetado (es muy similar a la desestructuración de JavaScript). Consiste en separar en variables individuales los items de una lista o una tupla.
+
+En este caso separamos en 3 variables los 3 items de la tupla de manera posicional. Imprimimos `12` y eso es lo que mostramos por pantalla. 
+
+</p>
+</details>
+
+#### 105. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+d = {3: 'd', 2: 'c', 1: 'b', 0: 'a'}
+print(d[0])
+```
+
+- **A.** `a`
+- **B.** `d`
+- **C.** `c`
+- **D.** `b`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **A.** `a`
+
+Las claves de un diccionario pueden ser cualquier valor inmutable, por ende no hay problema en usar números enteros como claves.
+
+No se debe confundir las claves numéricas como si una indexación de listas, cuando escribimos `d[0]` no significa la posición `0` del diccionario `d`, sino la clave `0` del diccionario `d`.
+
+No son índices de lista, son claves de diccionario.
+
+</p>
+</details>
+
+#### 106. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+MLB_team = {
+    'Colorado' : 'Rockies',
+    'Boston'   : 'Red Sox',
+    'Minnesota': 'Twins',
+    'Milwaukee': 'Brewers',
+    'Seattle'  : 'Mariners'
+}
+
+print(MLB_team[-1])
+```
+
+- **A.** `Mariners`
+- **B.** `KeyError`
+- **C.** `Rockies`
+- **D.** `-1`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **B.** `KeyError`
+
+Los diccionarios no pueden ser tratados como listas, no es posible acceder al último elemento de diccionario `MLB_team` haciendo `MLB_team[-1]`. Los diccionarios no tienen las mismas propiedades que las listas.
+
+</p>
+</details>
+
+#### 107. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Intermedio </mark>
+
+```py
+MLB_team = {
+    'Colorado' : 'Rockies',
+    'Boston'   : 'Red Sox',
+    'Minnesota': 'Twins',
+    'Milwaukee': 'Brewers',
+    'Seattle'  : 'Mariners'
+}
+
+print(MLB_team[0:2])
+```
+
+- **A.** `('Rockies', 'Red Sox')`
+- **B.** `['Rockies', 'Red Sox']`
+- **C.** `{'Rockies', 'Red Sox'}`
+- **D.** `TypeError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **D.** `TypeError`
+
+Los diccionarios no tienen una sintaxis de slice, no se pude cortar el diccionario como lista. Intentar hacer esto produce un `TypeError`.
+
+</p>
+</details>
+
+#### 108. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+person = {}
+person['fname'] = 'Joe'
+person['lname'] = 'Fonebone'
+person['age'] = 51
+person['spouse'] = 'Edna'
+person['children'] = ['Ralph', 'Betty', 'Joey']
+person['pets'] = {'dog': 'Fido', 'cat': 'Sox'}
+
+print(person.get("pets").get("cat"))
+```
+
+- **A.** `Fido`
+- **B.** `Sox`
+- **C.** `SyntaxError`
+- **D.** `TypeError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **B.** `Sox`
+
+Los diccionarios pueden contener otros diccionarios en su interior. Esta sintaxis se llama **diccionario anidados** y para acceder a sus valores se debe concatenar métodos `get()` (como en este reto) o se puede usar también la sintaxis de corchete: 
+
+```py
+print(person["pets"]["cat"]) # Sox
+```
+
+Nota también como creamos el diccionario, inicialmente `person` es un diccionario vacío y lo vamos llenando propiedad a propiedad asignado valores a diferentes claves.
+
+</p>
+</details>
+
+#### 109. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Intermedio </mark>
+
+```py
+d = {[1, 1]: 'a', [1, 2]: 'b', [2, 1]: 'c', [2, 2]: 'd'}
+print(d[[1,1]])
+```
+
+- **A.** `a`
+- **B.** `NameError`
+- **C.** `TypeError`
+- **D.** `Ninguna de las anteriores`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **C.** `TypeError`
+
+Las claves de un diccionario deben ser siempre inmutables, como por ejemplo, una cadena, un número, un booleano o una tupla. No pueden ser ni listas ni otros diccionarios (ambos son mutables).
+
+</p>
+</details>
+
+#### 110. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+def f(d):
+    r = {}
+    for key, value in d.items():
+        r[value] = key
+    return r
+        
+print(f({"a":1, "b":2, "c":3}))
+```
+
+- **A.** `{1: "a", 2: "b", 3: "c"}`
+- **B.** `{"a":1, "b":2, "c":3}`
+- **C.** `[1: "a", 2: "b", 3: "c"]`
+- **D.** `(1: "a", 2: "b", 3: "c")`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **A.** `{1: "a", 2: "b", 3: "c"}`
+
+Podemos hacer un sencillo intercambio de llaves por valores y regresar un nuevo diccionario iterando con el método `items()` y desempaquetando tanto llaves como valores. 
+
+</p>
+</details>
+
+<!-- #### 111. Explica el siguiente código Python
 
 ➡️ Dificultad: <mark> Fácil </mark>
 
