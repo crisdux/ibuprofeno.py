@@ -3391,7 +3391,296 @@ Podemos hacer un sencillo intercambio de llaves por valores y regresar un nuevo 
 </p>
 </details>
 
-<!-- #### 111. Explica el siguiente código Python
+#### 111. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+categories = ["color", "fruit", "pet"]
+objects = ["blue", "apple", "dog"]
+
+new_dict = {key:value for key, value in zip(categories, objects)}
+print(new_dict)
+```
+
+- **A.** `{'blue': 'color', 'apple': 'fruit', 'dog': 'pet'}`
+- **B.** `{'color': 'blue', 'fruit': 'apple', 'pet': 'dog'}`
+- **C.** `KeyError`
+- **D.** `RangeError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **B.** `{'color': 'blue', 'fruit': 'apple', 'pet': 'dog'}`
+
+Podemos crear diccionarios por comprensión de una manera muy similar a las listas por comprehensión. 
+
+En el ejemplo iteramos de manera paralela sobre las listas `categories` y `objects` y regresamos cada par clave valor dentro de un nuevo diccionario. 
+
+</p>
+</details>
+
+#### 112. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Intermedio </mark>
+
+```py
+print(bool(-100), bool(100))
+```
+
+- **A.** `True`, `True`
+- **B.** `True`, `False`
+- **C.** `False`, `True`
+- **D.** `False`, `False`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **A.** `True`, `True`
+
+En Python los tipos de datos booleanos descienden del tipo de datos de los números. Entonces El posible representar tanto `True` como `False` como valores numéricos, donde: `True` equivale a `1` y `False` equivale a `0`.
+
+Ahora bien, tenemos una peculiaridad con los números que sean diferentes de `1` y `0`. 
+
+Todos los numeros enteros que sean diferentes de `0` serán considerados como `True` (incluidos los valores negativos), **solo** el valor `0` equivale a `False`.
+
+En nuestro ejemplo `-100` infiere a `True` por mas que sea negativo porque es diferente de `0` y `100` también infiere a `True` por las mismas razones. 
+
+</p>
+</details>
+
+#### 113. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+print(not True * (100 + True))
+```
+
+- **A.** `101`
+- **B.** `0`
+- **C.** `100True`
+- **D.** `SyntaxError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **B.** `0`
+
+Ya sabemos que `True` infiere a `1` y `False` infiere a `0`.
+
+Entonces es posible hacer operaciones aritméticas con booleanos.
+
+Vamos por partes:
+* `not True` equivale a `False`, que en numeros equivale a `0`.
+* `100 + True` equivale a `101` porque `True` es `1`.
+* Finalmente tendríamos `0 * 101` que nos da `0`
+
+En este ejercicio en concreto basta con saber que `not True` da `0` para inferir que el resultado total será `0` (todo número multiplicado por `0` será `0` ya que el `0` es neutro multiplicativo)  
+
+</p>
+</details>
+
+#### 114. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+print( ((True / True) - 10 ) * 9)
+```
+
+- **A.** `80`
+- **B.** `81`
+- **C.** `-81`
+- **D.** `SyntaxError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **C.** `-81`
+
+Nuevamente operaciones aritméticas con booleanos:
+
+* `True / True` es lo mismo que `1/1`, por lo tanto nos da `1`.
+* `1 - 10` nos dará `-9`
+* Y `-9 * 9` será `-81` como resultado final.
+
+</p>
+</details>
+
+#### 115. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+my_tuple = (12, 45, 78)
+x, y, z, t = my_tuple
+print(t)
+```
+
+- **A.** `78`
+- **B.** `ValueError`
+- **C.** `45`
+- **D.** `12`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **B.** `ValueError`
+
+Para poder desempaquetar tuplas es necesario que la cantidad de variables creadas sea igual a la longitud de la tupla per se. Si esto no pasa entonces tenemos un `ValueError`.
+
+
+</p>
+</details>
+
+#### 116. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+my_tuple = (1, 2, True, 3)
+print(my_tuple.count(1))
+```
+
+- **A.** `1`
+- **B.** `2`
+- **C.** `3`
+- **D.** `Ninguno de los anteriores`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **B.** `2`
+
+Recordemos que los booleanos en Python derivan del tipo number, entonces el valor `True` del ejemplo equivale a un `1`.
+
+Por ello al contar cuantos valores `1` existen el resultado es `2`.
+
+</p>
+</details>
+
+#### 117. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+my_tuple = (1, 2, False, 3)
+print(min(my_tuple))
+```
+
+- **A.** `1`
+- **B.** `2`
+- **C.** `0`
+- **D.** `False`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **D.** `False`
+
+Nuevamente los valores booleanos infieren a números. En este caso `False` infiere a `0` por ello es considerado el valor mas pequeño de la tupla. Lo interesante es que no regresamos el valor `0` como número, sino el booleano `False`.
+
+</p>
+</details>
+
+#### 118. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+my_tuple = (1, 2, True * 2, 3)
+print(sum(my_tuple))
+```
+
+- **A.** `8`
+- **B.** `6`
+- **C.** `7`
+- **D.** `SyntaxError`
+
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **A.** `8`
+
+Siempre y cuando todos los valores de la tupla sean números es posible usar la función `sum()`. En nuestro ejemplo `True` infiere a `1` y multiplicado por `2` lo sumamos con todos los demás valores de la tupla.
+
+</p>
+</details>
+
+#### 119. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Intermedio </mark>
+
+```py
+my_tuple = ("1", "20", "30", "9")
+print(max(my_tuple))
+```
+
+- **A.** `1`
+- **B.** `20`
+- **C.** `30`
+- **D.** `9`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **D.** `9`
+
+Al comparar cadenas como items de una tupla usando `max` o `min` importa mas el valor como carácter y no como número.
+
+En nuestro ejemplo tomamos el primer carácter de cada item y los comparamos entre ellos para hallar el máximo, el cual es `9`. 
+
+</p>
+</details>
+
+#### 120. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+x = {"pepe", "albert", "jacinto", "alba"}
+print(x[1])
+```
+
+- **A.** `pepe`
+- **B.** `albert`
+- **C.** `jacinto`
+- **D.** `TypeError`
+
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **D.** `TypeError`
+
+Los conjuntos son una estructura de datos de Python que se caracterizan por no indexar sus elementos, por ende no es posible acceder a un valor especifico de un conjunto mediante su índice (cosa que si se puede hacer con listas y tuplas). 
+
+</p>
+</details>
+
+<!-- #### 121. Explica el siguiente código Python
 
 ➡️ Dificultad: <mark> Fácil </mark>
 
