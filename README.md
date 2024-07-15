@@ -3680,7 +3680,298 @@ Los conjuntos son una estructura de datos de Python que se caracterizan por no i
 </p>
 </details>
 
-<!-- #### 121. Explica el siguiente código Python
+#### 121. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+x = {"pepe", "albert", "jacinto"}
+print(x)
+```
+
+- **A.** `{"pepe", "albert", "jacinto"}`
+- **B.** `{"albert", "pepe", "jacinto"}`
+- **C.** `{"jacinto", "albert", "pepe"}`
+- **D.** `Todas las anteriores`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅  **D.** `Todas las anteriores`
+
+Los conjuntos son estructuras de datos no ordenadas, por este motivo no es posible saber el orden concreto de sus elementos en un momento dato de un programa. Cada vez que imprimamos nuestro conjunto `x` las posiciones de sus elementos irán cambiando. 
+
+</p>
+</details>
+
+#### 122. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+conjunto_vacio = {}
+print(type(conjunto_vacio))
+```
+
+- **A.** `<class 'tuple'>`
+- **B.** `<class 'dict'>`
+- **C.** `<class 'set'>`
+- **D.** `<class 'str'>`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **B.** `<class 'dict'>`
+
+No es posible crear conjuntos vacios usando a notación de `{}`, para lograr esto es necesario usar la palabra reservada `set`, así:
+
+```py
+conjunto_vacio = set({})
+print(type(conjunto_vacio)) # <class 'set'>
+```
+
+</p>
+</details>
+
+#### 123. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+print(set("Alemania"))
+```
+
+- **A.** `{'n', 'i', 'e', 'm', 'l', 'A', 'a'}`
+- **B.** `{'n', 'i', 'e', 'm', 'l', 'a'}`
+- **C.** `SyntaxError`
+- **D.** `Ninguana de las anteriores`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **A.** `{'n', 'i', 'e', 'm', 'l', 'A', 'a'}`
+
+Un `set` en Python es una estructura de datos que permite eliminar los elementos repetidos.
+
+En este caso le pasamos una cadena a la función `set`, posteriormente separa carácter por carácter y procede a eliminar los elementos repetidos. 
+
+Notar que `a` en minúscula no es lo mismo que `A` en mayúscula, por ello no se elimina la letra `A` de de la cadena.
+
+También es importante hacer notar que un `set` no es una estructura de datos ordenada, sino que cada vez que se ejecute el programa, el orden de los caracteres cambiará pero respetando la eliminación de los items repetidos. 
+
+</p>
+</details>
+
+#### 124. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+print(set([1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5]))
+```
+
+- **A.** `{0, 1, 2, 3, 4, 5}`
+- **B.** `{1, 2, 3, 4, 5}`
+- **C.** `{0, 1, 2, 3, 4}`
+- **D.** `{}`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **B.** `{1, 2, 3, 4, 5}`
+
+¿Qué sucede si pasamos a la función `set` una lista? 
+Elimina todos los duplicados y regresa un `set` con los items no repetidos de la lista.
+
+</p>
+</details>
+
+#### 125. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+print(set(("ADENINA", "TIMINA", "TIMINA", "GUANINA", "ADENINA", "CITOSINA")))
+```
+
+- **A.** `{'ADENINA', 'TIMINA', 'GUANINA'}`
+- **B.** `{'CITOSINA', 'ADENINA', 'GUANINA'}`
+- **C.** `{'CITOSINA', 'ADENINA', 'TIMINA', 'GUANINA'}`
+- **D.** `Ninguna de las anteriores`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅  **C.** `{'CITOSINA', 'ADENINA', 'TIMINA', 'GUANINA'}`
+
+¿Qué sucede si le pasamos a la función `set` una tupla?
+Nuevamente elimina todos los items repetidos y regresa un `set` con lo valores únicos.
+
+</p>
+</details>
+
+#### 126. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+print(set({"uno":1, "dos": 2, "tres":3}))
+```
+
+- **A.** `{'uno', 'dos', 'tres'}`
+- **B.** `{'uno', 'tres', 'dos'}`
+- **C.** `{'tres', 'dos', 'uno'}`
+- **D.** `Todas las anteriores`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **D.** `Todas las anteriores`
+
+Para usar `set` con diccionarios debemos tener en cuenta que las `keys` de los diccionarios son únicas, y que por ende estas serán consideras al momento de usar `set`.
+
+En nuestro caso, extraemos las llaves del diccionario, y por la naturaleza de los `set` no regresa las llaves ordenadas, por ende depende de cada ejecución del código para que regrese un resultado correcto pero desordenado.
+
+</p>
+</details>
+
+#### 127. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+x = {1, 2, 3}
+x.add(10)
+print(x)
+```
+
+- **A.** `{10, 1, 2, 3}`
+- **B.** `{1, 2, 3}`
+- **C.** `{10}`
+- **D.** `Ninguno de los anteriores`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **A.** `{10, 1, 2, 3}`
+
+Para agregar items a un conjunto se debe usar el método `add()`.
+Se verifica que el item a agregar no exista en el conjunto, si existe entonces no lo agrega.
+
+</p>
+</details>
+
+#### 128. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+x = {"a", "b", "c"}
+x.remove("x")
+print(x)
+```
+
+- **A.** `{}`
+- **B.** `{"a", "b", "c"}`
+- **C.** `KeyError`
+- **D.** `SyntaxError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅  **C.** `KeyError`
+
+Para poder eliminar items de un conjunto usamos el método `remove()`.
+
+Si el item a eliminar no existe en el conjunto entonces regresamos un `KeyError`. 
+
+Por ejemplo, para eliminar el item `a` tendriamos:
+
+```py
+x = {"a", "b", "c"}
+x.remove("a")
+print(x) # {'b', 'c'}
+```
+
+</p>
+</details>
+
+#### 129. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+x = {"a", "b", "c"}
+x.add("a")
+print(len(x))
+```
+
+- **A.** `4`
+- **B.** `3`
+- **C.** `2`
+- **D.** `5`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅ **B.** `3`
+
+`len()` nos es útil para saber la longitud del conjunto.
+
+En nuestro ejemplo no se agrega `a` con `add()` por que el conjunto ya tiene un valor `a`.
+
+Aplicamos `len()` y tenemos como resultado `3`.
+
+</p>
+</details>
+
+#### 130. Explica el siguiente código Python
+
+➡️ Dificultad: <mark> Fácil </mark>
+
+```py
+x = {"a", "b", "c"}
+print("c" in x)
+```
+
+- **A.** `True`
+- **B.** `False`
+- **C.** `NameError`
+- **D.** `SyntaxError`
+
+<details><summary><b>Respuesta</b></summary>
+<p>
+
+#### **Respuesta**:
+
+✅  **A.** `True`
+
+Podemos usar el operador `in` para verificar si un valor pertenece o no a un conjunto. 
+
+En nuestro ejemplo `c` si esta en el conjunto `x`, entonces regresamos `True`.
+
+</p>
+</details>
+
+<!-- #### 131. Explica el siguiente código Python
 
 ➡️ Dificultad: <mark> Fácil </mark>
 
